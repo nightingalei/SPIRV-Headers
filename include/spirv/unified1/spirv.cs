@@ -1060,6 +1060,7 @@ namespace Spv
             OptNoneINTEL = 6094,
             AtomicFloat16AddEXT = 6095,
             DebugInfoModuleINTEL = 6114,
+            CooperativeTensorVSI = 6115,
         }
 
         public enum RayFlagsShift
@@ -1806,6 +1807,14 @@ namespace Spv
             OpTypeStructContinuedINTEL = 6090,
             OpConstantCompositeContinuedINTEL = 6091,
             OpSpecConstantCompositeContinuedINTEL = 6092,
+            OpTypeCooperativeTensorVSI = 6093,
+            OpCooperativeTensorLoadVSI = 6094,
+            OpCooperativeTensorStoreVSI = 6095,
+            OpCooperativeTensorMulAddVSI = 6096,
+            OpCooperativeTensorLengthVSI = 6097,
+            OpCooperativeTensorConv2DVSI = 6098,
+            OpCooperativeTensorTransposeVSI = 6099,
+            OpCooperativeTensorMaxPool2DVSI = 6100,
         }
     }
 }

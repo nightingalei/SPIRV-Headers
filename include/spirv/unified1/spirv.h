@@ -1060,6 +1060,7 @@ typedef enum SpvCapability_ {
     SpvCapabilityOptNoneINTEL = 6094,
     SpvCapabilityAtomicFloat16AddEXT = 6095,
     SpvCapabilityDebugInfoModuleINTEL = 6114,
+    SpvCapabilityCooperativeTensorVSI = 6115,
     SpvCapabilityMax = 0x7fffffff,
 } SpvCapability;
 
@@ -1804,6 +1805,14 @@ typedef enum SpvOp_ {
     SpvOpTypeStructContinuedINTEL = 6090,
     SpvOpConstantCompositeContinuedINTEL = 6091,
     SpvOpSpecConstantCompositeContinuedINTEL = 6092,
+    SpvOpTypeCooperativeTensorVSI = 6093,
+    SpvOpCooperativeTensorLoadVSI = 6094,
+    SpvOpCooperativeTensorStoreVSI = 6095,
+    SpvOpCooperativeTensorMulAddVSI = 6096,
+    SpvOpCooperativeTensorLengthVSI = 6097,
+    SpvOpCooperativeTensorConv2DVSI = 6098,
+    SpvOpCooperativeTensorTransposeVSI = 6099,
+    SpvOpCooperativeTensorMaxPool2DVSI = 6100,
     SpvOpMax = 0x7fffffff,
 } SpvOp;
 
@@ -2448,6 +2457,14 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpTypeStructContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
+    case SpvOpTypeCooperativeTensorVSI: *hasResult = true; *hasResultType = false; break;
+    case SpvOpCooperativeTensorLoadVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorStoreVSI: *hasResult = false; *hasResultType = false; break;
+    case SpvOpCooperativeTensorMulAddVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorLengthVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorConv2DVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorTransposeVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorMaxPool2DVSI: *hasResult = true; *hasResultType = true; break;
     }
 }
 #endif /* SPV_ENABLE_UTILITY_CODE */

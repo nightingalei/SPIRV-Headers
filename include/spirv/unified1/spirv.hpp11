@@ -1056,6 +1056,7 @@ enum class Capability : unsigned {
     OptNoneINTEL = 6094,
     AtomicFloat16AddEXT = 6095,
     DebugInfoModuleINTEL = 6114,
+    CooperativeTensorVSI = 6115,
     Max = 0x7fffffff,
 };
 
@@ -1800,6 +1801,14 @@ enum class Op : unsigned {
     OpTypeStructContinuedINTEL = 6090,
     OpConstantCompositeContinuedINTEL = 6091,
     OpSpecConstantCompositeContinuedINTEL = 6092,
+    OpTypeCooperativeTensorVSI = 6093,
+    OpCooperativeTensorLoadVSI = 6094,
+    OpCooperativeTensorStoreVSI = 6095,
+    OpCooperativeTensorMulAddVSI = 6096,
+    OpCooperativeTensorLengthVSI = 6097,
+    OpCooperativeTensorConv2DVSI = 6098,
+    OpCooperativeTensorTransposeVSI = 6099,
+    OpCooperativeTensorMaxPool2DVSI = 6100,
     Max = 0x7fffffff,
 };
 
@@ -2444,6 +2453,14 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case Op::OpTypeStructContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
+    case Op::OpTypeCooperativeTensorVSI: *hasResult = true; *hasResultType = false; break;
+    case Op::OpCooperativeTensorLoadVSI: *hasResult = true; *hasResultType = true; break;
+    case Op::OpCooperativeTensorStoreVSI: *hasResult = false; *hasResultType = false; break;
+    case Op::OpCooperativeTensorMulAddVSI: *hasResult = true; *hasResultType = true; break;
+    case Op::OpCooperativeTensorLengthVSI: *hasResult = true; *hasResultType = true; break;
+    case Op::OpCooperativeTensorConv2DVSI: *hasResult = true; *hasResultType = true; break;
+    case Op::OpCooperativeTensorTransposeVSI: *hasResult = true; *hasResultType = true; break;
+    case Op::OpCooperativeTensorMaxPool2DVSI: *hasResult = true; *hasResultType = true; break;
     }
 }
 #endif /* SPV_ENABLE_UTILITY_CODE */
