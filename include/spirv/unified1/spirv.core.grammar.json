@@ -8724,6 +8724,125 @@
       ],
       "capabilities" : [ "GroupUniformArithmeticKHR" ],
       "version" : "None"
+    },
+    {
+      "opname" : "OpTypeCooperativeTensorVSI",
+      "class"  : "Reserved",
+      "opcode" : 6601,
+      "operands" : [
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",        "name" : "'Component Type'" },
+        { "kind" : "IdRef",        "quantifier" : "*", "name" : "'Columns'" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorLoadVSI",
+      "class"  : "Reserved",
+      "opcode" : 6602,
+      "operands" : [
+        { "kind" : "IdResultType" },
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",             "name" : "'Pointer'" },
+        { "kind" : "IdRef",             "name" : "'Offset'" },
+        { "kind" : "IdRef",             "name" : "'Stride'" },
+        { "kind" : "IdRef",             "name" : "'HWC Layout'" },
+        { "kind" : "MemoryAccess",      "quantifier" : "?" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorStoreVSI",
+      "class"  : "Reserved",
+      "opcode" : 6603,
+      "operands" : [
+        { "kind" : "IdRef",             "name" : "'Pointer'" },
+        { "kind" : "IdRef",             "name" : "'Object'" },
+        { "kind" : "IdRef",             "name" : "'Offset'" },
+        { "kind" : "IdRef",             "name" : "'Stride'" },
+        { "kind" : "IdRef",             "name" : "'HWC Layout'" },
+        { "kind" : "MemoryAccess",      "quantifier" : "?" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorMulAddVSI",
+      "class"  : "Reserved",
+      "opcode" : 6604,
+      "operands" : [
+        { "kind" : "IdResultType" },
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",             "name" : "'A'" },
+        { "kind" : "IdRef",             "name" : "'B'" },
+        { "kind" : "IdRef",             "name" : "'C'" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorLengthVSI",
+      "class"  : "Reserved",
+      "opcode" : 6605,
+      "operands" : [
+        { "kind" : "IdResultType" },
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",        "name" : "'Type'" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorConv2DVSI",
+      "class"  : "Reserved",
+      "opcode" : 6606,
+      "operands" : [
+        { "kind" : "IdResultType" },
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",             "name" : "'Input'" },
+        { "kind" : "IdRef",             "name" : "'Weight'" },
+        { "kind" : "IdRef",             "name" : "'Bias'" },
+        { "kind" : "IdRef",             "name" : "'Stride'" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorTransposeVSI",
+      "class"  : "Reserved",
+      "opcode" : 6607,
+      "operands" : [
+        { "kind" : "IdResultType" },
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",             "name" : "'Input'" },
+        { "kind" : "IdRef",             "name" : "'Perm'" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
+    },
+    {
+      "opname" : "OpCooperativeTensorMaxPool2DVSI",
+      "class"  : "Reserved",
+      "opcode" : 6608,
+      "operands" : [
+        { "kind" : "IdResultType" },
+        { "kind" : "IdResult" },
+        { "kind" : "IdRef",             "name" : "'Input'" },
+        { "kind" : "IdRef",             "name" : "'Pool Size'" },
+        { "kind" : "IdRef",             "name" : "'Pool Stride'" }
+      ],
+      "capabilities" : [ "CooperativeTensorVSI" ],
+      "extensions" : [ "SPV_VSI_cooperative_tensor" ],
+      "version" : "None"
     }
   ],
   "operand_kinds" : [
@@ -14264,6 +14383,13 @@
           "enumerant" : "GroupUniformArithmeticKHR",
           "value" : 6400,
           "extensions" : [ "SPV_KHR_uniform_group_instructions"],
+          "version" : "None"
+        },
+        {
+          "enumerant" : "CooperativeTensorVSI",
+          "value" : 6600,
+          "capabilities" : [ "Shader" ],
+          "extensions" : [ "SPV_VSI_cooperative_tensor" ],
           "version" : "None"
         }
       ]

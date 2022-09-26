@@ -1122,6 +1122,7 @@ namespace Spv
             DebugInfoModuleINTEL = 6114,
             SplitBarrierINTEL = 6141,
             GroupUniformArithmeticKHR = 6400,
+            CooperativeTensorVSI = 6600,
         }
 
         [AllowDuplicates, CRepr] public enum RayFlagsShift
@@ -1899,6 +1900,14 @@ namespace Spv
             OpGroupLogicalAndKHR = 6406,
             OpGroupLogicalOrKHR = 6407,
             OpGroupLogicalXorKHR = 6408,
+            OpTypeCooperativeTensorVSI = 6601,
+            OpCooperativeTensorLoadVSI = 6602,
+            OpCooperativeTensorStoreVSI = 6603,
+            OpCooperativeTensorMulAddVSI = 6604,
+            OpCooperativeTensorLengthVSI = 6605,
+            OpCooperativeTensorConv2DVSI = 6606,
+            OpCooperativeTensorTransposeVSI = 6607,
+            OpCooperativeTensorMaxPool2DVSI = 6608,
         }
     }
 }

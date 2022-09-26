@@ -1121,6 +1121,7 @@ typedef enum SpvCapability_ {
     SpvCapabilityDebugInfoModuleINTEL = 6114,
     SpvCapabilitySplitBarrierINTEL = 6141,
     SpvCapabilityGroupUniformArithmeticKHR = 6400,
+    SpvCapabilityCooperativeTensorVSI = 6600,
     SpvCapabilityMax = 0x7fffffff,
 } SpvCapability;
 
@@ -1896,6 +1897,14 @@ typedef enum SpvOp_ {
     SpvOpGroupLogicalAndKHR = 6406,
     SpvOpGroupLogicalOrKHR = 6407,
     SpvOpGroupLogicalXorKHR = 6408,
+    SpvOpTypeCooperativeTensorVSI = 6601,
+    SpvOpCooperativeTensorLoadVSI = 6602,
+    SpvOpCooperativeTensorStoreVSI = 6603,
+    SpvOpCooperativeTensorMulAddVSI = 6604,
+    SpvOpCooperativeTensorLengthVSI = 6605,
+    SpvOpCooperativeTensorConv2DVSI = 6606,
+    SpvOpCooperativeTensorTransposeVSI = 6607,
+    SpvOpCooperativeTensorMaxPool2DVSI = 6608,
     SpvOpMax = 0x7fffffff,
 } SpvOp;
 
@@ -2566,6 +2575,14 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpGroupLogicalAndKHR: *hasResult = true; *hasResultType = true; break;
     case SpvOpGroupLogicalOrKHR: *hasResult = true; *hasResultType = true; break;
     case SpvOpGroupLogicalXorKHR: *hasResult = true; *hasResultType = true; break;
+    case SpvOpTypeCooperativeTensorVSI: *hasResult = true; *hasResultType = false; break;
+    case SpvOpCooperativeTensorLoadVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorStoreVSI: *hasResult = false; *hasResultType = false; break;
+    case SpvOpCooperativeTensorMulAddVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorLengthVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorConv2DVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorTransposeVSI: *hasResult = true; *hasResultType = true; break;
+    case SpvOpCooperativeTensorMaxPool2DVSI: *hasResult = true; *hasResultType = true; break;
     }
 }
 #endif /* SPV_ENABLE_UTILITY_CODE */

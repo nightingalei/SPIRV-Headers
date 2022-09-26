@@ -1117,6 +1117,7 @@ enum Capability {
     CapabilityDebugInfoModuleINTEL = 6114,
     CapabilitySplitBarrierINTEL = 6141,
     CapabilityGroupUniformArithmeticKHR = 6400,
+    CapabilityCooperativeTensorVSI = 6600,
     CapabilityMax = 0x7fffffff,
 };
 
@@ -1892,6 +1893,14 @@ enum Op {
     OpGroupLogicalAndKHR = 6406,
     OpGroupLogicalOrKHR = 6407,
     OpGroupLogicalXorKHR = 6408,
+    OpTypeCooperativeTensorVSI = 6601,
+    OpCooperativeTensorLoadVSI = 6602,
+    OpCooperativeTensorStoreVSI = 6603,
+    OpCooperativeTensorMulAddVSI = 6604,
+    OpCooperativeTensorLengthVSI = 6605,
+    OpCooperativeTensorConv2DVSI = 6606,
+    OpCooperativeTensorTransposeVSI = 6607,
+    OpCooperativeTensorMaxPool2DVSI = 6608,
     OpMax = 0x7fffffff,
 };
 
@@ -2562,6 +2571,14 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case OpGroupLogicalAndKHR: *hasResult = true; *hasResultType = true; break;
     case OpGroupLogicalOrKHR: *hasResult = true; *hasResultType = true; break;
     case OpGroupLogicalXorKHR: *hasResult = true; *hasResultType = true; break;
+    case OpTypeCooperativeTensorVSI: *hasResult = true; *hasResultType = false; break;
+    case OpCooperativeTensorLoadVSI: *hasResult = true; *hasResultType = true; break;
+    case OpCooperativeTensorStoreVSI: *hasResult = false; *hasResultType = false; break;
+    case OpCooperativeTensorMulAddVSI: *hasResult = true; *hasResultType = true; break;
+    case OpCooperativeTensorLengthVSI: *hasResult = true; *hasResultType = true; break;
+    case OpCooperativeTensorConv2DVSI: *hasResult = true; *hasResultType = true; break;
+    case OpCooperativeTensorTransposeVSI: *hasResult = true; *hasResultType = true; break;
+    case OpCooperativeTensorMaxPool2DVSI: *hasResult = true; *hasResultType = true; break;
     }
 }
 #endif /* SPV_ENABLE_UTILITY_CODE */
